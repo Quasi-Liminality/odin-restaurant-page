@@ -1,10 +1,7 @@
+import "./style.css"
 import { HomePage } from "./home.js";
 import { MenuPage } from "./menu.js";
-import "./style.css"
-
-
-console.log(HomePage)
-console.log(MenuPage)
+import { AboutPage } from "./about.js"
 
 // DOM cache
 const content = document.querySelector('#content');
@@ -13,7 +10,7 @@ const menuBtn = document.querySelector('#menu');
 const aboutBtn = document.querySelector('#about');
 
 // On page load
-content.append(HomePage);
+HomePage();
 
 // Event Listeners
 homeBtn.addEventListener('click', handleBtnClick);
@@ -22,16 +19,16 @@ aboutBtn.addEventListener('click', handleBtnClick);
 
 // Event Handlers
 function handleBtnClick(e) {
-    let page;
+    content.replaceChildren();
 
     switch (e.target.id) {
         case 'home':
-            page = HomePage;
+            HomePage();
             break;
         case 'menu':
-            page = MenuPage;
+            MenuPage();
             break;
+        case 'about':
+            AboutPage();
     }
-
-    content.replaceChildren(page);
 }

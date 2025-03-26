@@ -1,4 +1,4 @@
-export const HomePage = (function() {
+export const HomePage = () => {
     const hero = (function() {
         const div = document.createElement('div');
         div.className = 'hero';
@@ -26,7 +26,8 @@ export const HomePage = (function() {
         return btn;
     })();
        
-    hero.replaceChildren(heroHeading, heroMessage, heroLearnMoreButton);
+    hero.append(heroHeading, heroMessage, heroLearnMoreButton);
 
-    return hero;
-})();
+    const content = document.querySelector('#content');
+    content.append(hero);
+};

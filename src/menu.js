@@ -15,7 +15,7 @@ const createMenuItem = (itemName, itemPrice) => {
     return div;
 };
 
-export const MenuPage = (function() {
+export const MenuPage = () => {
     const container = (function () {
         const div = document.createElement('div');
         div.className = 'container';
@@ -44,5 +44,6 @@ export const MenuPage = (function() {
     menu.append(menuItemSalads, menuItemPizzas, menuItemPastas, menuItemSoups);
     container.append(menuHeading, menu);
     
-    return container;
-})();
+    const content = document.querySelector('#content');
+    content.append(container);
+};
